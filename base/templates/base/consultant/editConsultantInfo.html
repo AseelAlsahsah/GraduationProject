@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/consultantDashboard.css' %}">
+    <title>Personal Info</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <a href="#" class="logo">
+                <img src="{{user.profilePicture.url}}" alt="">
+                <span class="nav-items"> {{user.username}}</span>
+            </a>
+        </li>
+        <li><a href="#" class="logo" style="cursor:auto">
+            <span class="nav-items" style="top:0px;cursor:auto"> Majors: {{user.major}}</span>
+        </a></li>
+        <br>
+
+        <li><a href="{% url 'consultantDashboard' user.id %}">
+            <i class="fas fa-calendar"></i>
+            <span class="nav-items"> My sessions</span>
+        </a></li>
+
+        <li><a href="{% url 'editConsultant' user.id %}">
+            <i class="fas fa-pencil-alt"></i>
+            <span class="nav-items"> Edit profile info</span>
+        </a></li>
+
+        <li><a href="{% url 'logout' %}" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-items"> Logout</span>
+        </a></li>
+    </ul>
+</nav>
+<div class="headings">
+    <h1>Personal Info</h1>
+</div>
+
+
+<div class="forms">
+    <div class="form-content">
+        <div class="signup-form">
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="profile" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="{{ user.profilePicture.url }}" alt="">
+                </div>
+
+                <div class="input-box">
+                    {{ form.profilePicture }}
+                </div>
+                <div class="input-boxes">
+                    <i class="fas fa-user" style="top:0px;height:0px ;width:0px;padding-right:25px;padding-left:5px;margin-bottom:0px"></i>
+                    <label>Username:</label>
+                    <div class="input-box">
+                        {{ form.username }}
+                    </div>
+
+                    <div class="button input-box" id="submit">
+                        <input type="submit" value="Update">
+                    </div>
+                    {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                        <p style="color:red; text-align:center; font-weight:600">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

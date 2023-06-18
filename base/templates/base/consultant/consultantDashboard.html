@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'styles/myAccount.css' %}">
+    <title>Document</title>
+</head>
+<body>
+<!--sidebar-->
+<nav>
+    <ul>
+        <li>
+            <a href="#" class="logo" style="cursor:auto">
+                <img src="{{user.profilePicture.url}}" alt="">
+                <span class="nav-items" style="cursor:auto"> {{user.username}} </span>
+            </a>
+        </li>
+        <li><a href="#" class="logo" style="cursor:auto">
+            <span class="nav-items" style="top:0px;cursor:auto"> Majors: {{user.major}}</span>
+        </a></li>
+        <li><a href="{% url 'consultantDashboard' user.id %}">
+            <i class="fas fa-calendar"></i>
+            <span class="nav-items"> My sessions</span>
+        </a></li>
+
+        <li><a href="{% url 'editConsultant' user.id %}">
+            <i class="fas fa-pencil-alt"></i>
+            <span class="nav-items"> Edit profile info</span>
+        </a></li>
+
+        <li><a href="{% url 'logout' %}" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-items"> Logout</span>
+        </a></li>
+    </ul>
+</nav>
+<div class="headings">
+    <h1>My Sessions</h1>
+</div>
+
+<!------------consultant table----------->
+<div class="table-container">
+
+    <main class="table">
+        <section class="table__body">
+            <table>
+                <thead>
+                <tr>
+                    <th> Student Name</th>
+                    <th> Session Date</th>
+                    <th> Session Time</th>
+                    <th> Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for session in session_data %}
+                <tr class="TR">
+                    <td><img src="{% static 'images/user.png' %}" alt="">{{ session.student }}</td>
+                    <td>{{ session.date }}</td>
+                    <td>{{ session.time }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'consul_enter_session' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="session_id" value="{{ session.id }}">
+                            {% if session.button_color == 'green' %}
+                            <button type="submit" class="accept"> Enter Session</button>
+                            {% else %}
+                            {% if session.button_color == 'gray' %}
+                            <button type="button" class="disabled">Session Ended</button>
+                            {% else %}
+                            <button type="button" class="disabled">Come Back Later</button>
+                            {% endif %}
+                            {% endif %}
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr class="TR"></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    {% if messages %}
+    <div class="messages" style="margin-top:20px">
+        {% for message in messages %}
+        <p style="color:red; text-align:center; font-weight:600; padding-left:300px">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/ConsultantTestStyle.css' %}">
+
+    <title> initial symptoms </title>
+</head>
+
+<body>
+<!--NavBar-->
+{% include 'base/navbar.html' %}
+
+{% block content %}
+<center>
+    <div class="quiz-container" id="quiz">
+        <div class="quiz-header">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <h3 id="question">Choose your age group:</h3>
+                    {% for radio in form.age_group %}
+                    {{ radio }}
+                    {% endfor %}
+                </fieldset>
+
+                <fieldset>
+                    <h3 id="question">How long have you been experiencing these symptoms or behaviors?</h3>
+                    {% for radio in form.symptoms_duration %}
+                    {{ radio }}
+                    {% endfor %}
+                </fieldset>
+
+                <fieldset>
+                    <h3 id="question">What is your current level of functioning in daily life, such as work, school, or social
+                        relationships?
+                    </h3>
+                    {% for radio in form.level_of_functioning %}
+                    {{ radio }}
+                    {% endfor %}
+                </fieldset>
+
+                <fieldset>
+                    <h3 id="question">Does your family have any traumatic experiences or mental health concerns in it?</h3>
+                    {% for radio in form.family_history %}
+                    {{ radio }}
+                    {% endfor %}
+                </fieldset>
+
+                <fieldset>
+                    <h3 id="question">What is your preferred method of treatment, with medication or only therapy?</h3>
+                    {% for radio in form.preferred_treatment %}
+                    {{ radio }}
+                    {% endfor %}
+                </fieldset>
+
+                <fieldset>
+                    <h3 id="question">Which of these symptoms combination or behaviors you think describes your conditions the
+                        most?
+                    </h3>
+                    {% for radio in form.symptoms %}
+                    {{ radio }}
+                    <br>
+                    <br>
+                    {% endfor %}
+                </fieldset>
+
+                {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                    <p style="color:red; text-align:center; font-weight:600">{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <button class="btn" type="submit">Submit</button>
+            </form>
+
+            {% endblock %}
+        </div>
+    </div>
+</center>
+
+<!--{% include 'base/footer.html' %}-->
+<!--<script src="{% static 'js/TestConsultant.js' %}"></script>-->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Consultants Section</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'styles/consultantSection.css' %}"/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!---------------------Consultant Section------------------------>
+
+<div class="title">
+    <h1>OUR CONSULTANTS TEAM</h1>
+    <p style="font-size: 18px;color: #023d53;">Our handpicked team consists of highly skilled and trustworthy therapy
+        professionals dedicated to your well-being.</p>
+</div>
+
+<div id="testimonial-slider" class="wrapper">
+    {% for consultant in consultants %}
+    <div class="card2">
+        <div class="content2">
+            <div class="img2"><img src="{{consultant.profilePicture.url}}"></div>
+            <div class="details">
+                <span class="name2"> Counselor {{consultant.username}} </span>
+                <p>{{consultant.major}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<button style="width: 300px;margin-left: 39%;margin-bottom: 70px;" class="viewbutton">
+    <a href="{% url 'ourTeam' %}" style="text-decoration: none;"> View all consultants</a>
+</button>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  // Initialize Slick Carousel
+  $("#testimonial-slider").slick({
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+@import url("https://font.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+*{
+    margin:0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background: #efefef;
+}
+/*---------side bar------------*/
+nav{
+    position: absolute;
+    padding-top: 6.66%;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #001524;
+    width: 280px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+.logo img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+
+.profile img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: #001524;
+}
+
+.logo span{
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+a{
+    position: relative;
+    color:  #efefef;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+}
+.fas{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-items{
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+
+a:hover{
+    background: #eee;
+    color: #001524;
+}
+.logout{
+    position: absolute;
+    bottom: 0;
+}
+/*--------------Headings style--------------------*/
+.headings{
+    background-color: #001524;
+    height: 5%;
+    width: 100%;
+}
+.headings h1{
+    margin-left: 50%;
+    color: #ebeef1;
+    padding: 2%;
+
+}
+
+table{
+    position: absolute;
+    left: 60%;
+    margin-top: 20%;
+    transform: translate(-50%, -50%);
+    border-collapse: collapse;
+    width: 900px;
+    height: 30%;
+    border: 1px solid #bdc3c7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #eee;
+
+}
+
+.TR{
+    transition :all .2s ease-in;
+    cursor: pointer;
+
+}
+
+th,td{
+    padding: 7px;
+    text-align:center;
+    border-bottom: 1px solid #fff;
+}
+
+
+.TR:hover{
+    background-color:#f5f5f5 ;
+    transform:scale(1.02);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+ button {
+    background: #ebeef1;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    width: 180px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: #00a037;
+    box-shadow: 10px 10px 10px -1px rgba(10, 99, 169,0.16), -10px -10px 10px -1px rgba(255,255,255,0.70) ;
+
+
+
+  }
+
+  .disabled {
+    color: #ed0000;
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: inset 10px 10px 10px -1px rgba(10, 99, 169,0.16), inset -10px -10px 10px -1px rgba(255,255,255,0.70) ;;
+  }
+
+
+/*---------------------edit profile info page---------------------*/
+
+.form-content .signup-form{
+    align-items: center;
+    width: 50%;
+    margin-left: 35%;
+    margin-top: 3%;
+  }
+  .forms .form-content .title{
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+  }
+  .forms .form-content .title:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 25px;
+    background: #002234;
+  }
+  .forms .signup-form  .title:before{
+    width: 20px;
+  }
+  .forms .form-content .input-boxes{
+    margin-top: 20px;
+  }
+  .forms .form-content .input-box{
+    display: flex;
+    align-items: center;
+    height: 45px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+  }
+  .form-content .input-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius:5px;
+    border-color: #002234;
+    transition: all 0.3s ease;
+    background-color: #efefef;
+  }
+
+  .form-content .input-box input:focus,
+  .form-content .input-box input:valid{
+    border-color: #002234;
+  }
+  .form-content .input-box i{
+    position: absolute;
+    color: #002234;
+    font-size: 17px;
+  }
+  .form-content i{
+    color: #002234;
+    font-size: 17px;
+    padding-right: 40px;
+  }
+  .forms .form-content .text{
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  .forms .form-content .text a{
+    text-decoration: none;
+  }
+  .forms .form-content .text a:hover{
+    text-decoration: underline;
+  }
+  .forms .form-content .button{
+    color: #fff;
+    margin-top: 30px;
+  }
+  .forms .form-content .button input{
+    color: #fff;
+    background: #002234;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  #submit{
+    color: #fff;
+    background: #002234;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  .forms .form-content .button input:hover{
+    background: #002234;
+  }
+
+  .forms .form-content label{
+    color: #002234;
+    cursor: auto;
+    font-weight: bold;
+  }
+  .forms .form-content label:hover{
+    text-decoration: none;
+  }
+
+  .forms .form-content .login-text,
+  .forms .form-content .sign-up-text{
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  @media (max-width: 730px) {
+    .container .cover{
+      display: none;
+    }
+    .form-content .login-form,
+    .form-content .signup-form{
+      width: 100%;
+    }
+    .form-content .signup-form{
+      display: none;
+    }
+
+  }
+
+  /***************************************************** sign up drop down **********************************************/
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #002234;
+  }
+
+  .dropdown-content a:hover {
+  background-color: #0d45a5;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+
+
+  /********************** styling upload button ********************************/
+  input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: #444;
+    padding: 5px;
+    background: #fff;
+    /*border-radius: 10px;*/
+  }

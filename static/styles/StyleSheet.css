@@ -1,0 +1,359 @@
+/*********************************** Top Bar Style ************************************/
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(to right , #d8e2dc 40% , #EEEEEE);
+}
+
+/*********************************** FAQs Style ************************************/
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:300px;
+}
+
+.headline{
+
+  font-family: "Quicksand" , sans-serif;
+  text-align:center;
+  padding-top: 30px;
+  font-weight: bold;
+  color: #002234;
+  width: 500px;
+  font-size: 2rem;
+  margin: 2rem 0rem;
+
+}
+
+.faq{  /**question style**/
+
+        font-size: 20px;
+        color: #011e2d;
+        padding: 15px;
+
+}
+.answers{ /**answer style**/
+        padding-top: 8px;
+        font-style:normal;
+        color: #011e2d;
+}
+
+div.box {
+  width: 350px;
+  height:450px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  text-align: center;
+  float:left;
+  margin-left:50px;
+  margin-bottom:25px;
+  padding-left:30px;
+  padding-right:30px;
+  padding-top:15px;
+  border-radius: 10px;
+  background: #e8e8e8;
+}
+
+
+.boxes{ /** div contains all the boxes**/
+     margin: auto;
+     width: 100%;
+     margin-top:55px;
+
+}
+.box:hover{
+  transform: translateY(-15px);
+  transition:  ease-in 0.3s;
+  }
+/*********************************** Footer Style ************************************/
+.footer{
+    /*background-color:#011e2d;*/
+    background-color: #011e2d;
+    height:210px;
+    color:white;
+}
+
+.footersummary{
+  width: 520px;
+  text-align:left;
+  float:left;
+  padding-left:20px;
+  padding-top:15px;
+  margin:auto;
+  font-size: 12px;
+}
+
+.vl {
+    border-left: 2px solid white;
+    height: 120px;
+    position: absolute;
+    left: 39%;
+    margin-top: 60px;
+}
+
+.offer{
+    width: 340px;
+    height: 150px;
+    margin-left: 600px;
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.vl2{
+      border-left:2px solid white;
+      height:120px;
+      position:absolute;
+      left: 66%;
+      margin-top: -90px;
+}
+
+.security{
+    width: 400px;
+    text-align: center;
+    float: left;
+    padding-right: 20px;
+    margin-left: 980px;
+    font-size: 12px;
+    margin-top: -120px;
+}
+
+.copyrights{
+    margin-top:19px;
+    font-size:10px;
+    margin-left:1040px;
+    height:20px;
+}
+
+  /*********************************** HomePage Style ************************************/
+
+.text {
+  text-align:center;
+  background-color: #E9EAEC;
+  width: 100%;
+  height: 400px;
+  padding-top: 100px;
+  font-size:18px;
+  color: #023d53;
+}
+
+.image1{
+  background-blend-mode:darken;
+  background: rgba(0, 0, 0, .65);
+  height:710px;
+}
+
+.container1{
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:15px;
+}
+
+.aligned {
+  display: flex;
+  align-items: center;
+}
+
+.textImage{
+  height: 189px;
+  color: #003049;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 55px;
+}
+
+
+/***************************************** Feedback Style ********************************************************/
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #003049;
+  border-radius: 11px;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.feedbackContainer {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.feedbackModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 120%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 20px;
+}
+
+/* Modal Content/Box */
+.feedbackModal-content {
+  background-color: #fefefe;
+  border-radius: 11px;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+/************************************* book process div ***********************************************/
+.title h1{
+    color:#003049;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 42px;
+}
+
+.title h1::after{
+    content: "";
+    height: 4px;
+    width: 230px;
+    background-color: #000;
+    display: black;
+    margin: auto;
+}
+
+.process{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 75px auto;
+    text-align: center;
+}
+
+.card{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 20px;
+    padding: 20px 20px;
+    background-color: #efefefef;
+    border-radius: 10px;
+}
+
+.card .icon{
+    color: #9a8c98;
+    font-size: 35px;
+    margin-bottom:35px ;
+}
+
+.card h2{
+    font-size: 28px;
+    color: #003049;
+    margin-bottom: 20px;
+}
+
+.card p{
+    font-size: 17px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.card:hover{
+   background-color: #fff;
+  transition: 0.4s ease-in-out;
+}

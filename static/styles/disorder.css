@@ -1,0 +1,115 @@
+﻿.all{
+    display: flex;
+    justify-content:space-evenly;
+    margin-top: 100px;
+  }
+
+  .definition,
+  .advice,
+  .sign{
+    background-color: #0d1b2a;
+    height: 300px;
+    width: 400px;
+    color:white;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .definition::after{
+    content: "Definition";
+    border: 2px solid transparent;
+    padding: 15px 30px;
+    position: absolute;
+    letter-spacing: 2px;
+    color:white;
+    left: 10%;
+    top: 35%;
+    border-radius: 15px;
+    font-size: 50px;
+  }
+
+  .advice::after{
+    content: "Advices";
+    border: 2px solid transparent;
+    padding: 15px 30px;
+    position: absolute;
+    letter-spacing: 2px;
+    color:white;
+    left: 20%;
+    top: 35%;
+    border-radius: 15px;
+    font-size: 50px;
+  }
+
+  .sign::after{
+    content: "Signs";
+    border: 2px solid transparent;
+    padding: 15px 30px;
+    position: absolute;
+    letter-spacing: 2px;
+    color:white;
+    left: 25%;
+    top: 35%;
+    border-radius: 15px;
+    font-size: 50px;
+  }
+
+  .def{
+    background-color: #709acf;
+    height: 450px;
+    width: 340px;
+    border-radius: 15px;
+    padding: 30px;
+    position: absolute;
+    left: 0px;
+    top:0px;
+    transform: translateY(450px);
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  p{
+    font-family: "Poppins", sans-serif;
+  }
+  li{
+    font-family: "Poppins", sans-serif;
+  }
+  .definition:hover .def,
+  .advice:hover .def,
+  .sign:hover .def{
+    transform: translateY(0px);
+    transition-duration: 2s;
+  }
+
+  .definition:hover::after,
+  .advice:hover::after,
+  .sign:hover::after{
+    transform: translateY(-300px);
+    transition-duration: 2s;
+  }
+
+  .def p{
+    line-height: 35px;
+    color: white;
+  }
+
+  .disorderName{
+ box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  text-align:center;
+   margin: auto;
+  width: 38%;
+  padding:10px;
+  margin-top:140px;
+  /*background-color:#778da9;*/
+  background-color: #709acf;
+   }
+   
+.footer{
+background-color:#002234;
+height:200px;
+margin-top: 200px;
+}

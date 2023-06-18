@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'styles/scaledFeedback.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+<!--side bar-->
+<nav>
+    <ul>
+        <li class="link">
+            <a href="#" class="logo">
+                <img src="{% static 'images/user.png' %}" alt="">
+                <span class="nav-items"> {{session.student.username}} - Student</span>
+            </a>
+        </li>
+
+        <li class="link"><a href="{% url 'studentHistory' session.student.id %}">
+            <i class="fas fa-clock"></i>
+            <span class="nav-items"> My History </span>
+        </a></li>
+
+        <li class="link"><a href="{% url 'studentSessions' session.student.id %}">
+            <i class="fas fa-calendar"></i>
+            <span class="nav-items"> My Sessions </span>
+        </a></li>
+
+        <li class="link"><a href="{% url 'home' %}">
+            <i class="fas fa fa-home"></i>
+            <span class="nav-items"> Back to Home </span>
+        </a></li>
+
+        <li class="link"><a href="{% url 'logout' %}" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-items"> Logout</span>
+        </a></li>
+
+    </ul>
+</nav>
+<div class="headings">
+    <h1>My History</h1>
+</div>
+
+<div class="allcontent">
+    <div class="content">
+
+        <div class="head">
+            <h2>your scaled feedback is :
+                {% if scaled_feedback == 'Crisis' %}
+                <span style="font-weight: bold;color: #a30c11;">{{scaled_feedback}}</span>
+                {% else %}
+                {% if scaled_feedback == 'Moderate' %}
+                <span style="font-weight: bold;color: #827100;">{{scaled_feedback}}</span>
+                {% else %}
+                {% if scaled_feedback == 'Normal' %}
+                <span style="font-weight: bold;color: #005c00;">{{scaled_feedback}}</span>
+                {% else %}
+                {% if scaled_feedback == 'None' %}
+                <span style="font-weight: bold;color: #006393;">{{scaled_feedback}}</span>
+                {% endif %}
+                {% endif %}
+                {% endif %}
+                {% endif %}
+
+            </h2>
+        </div>
+
+        <div class="text-area">
+            <h2>your consultant's notes:</h2>
+            <p>{{notes}} </p>
+        </div>
+        {% if scaled_feedback == 'Crisis' %}
+        <center><p class="uni">You can book an appointment with the University Of Jordan's Mental Health Unit starting
+            from here:</p></center>
+
+        <a href="https://eservices.ju.edu.jo/ClinicApp" class="link">https://eservices.ju.edu.jo/ClinicApp</a>
+
+        <div class="btn">
+            <button class="steps"><a href="{% static 'steps.pdf' %}" style="color:white;">Show Steps</a></button>
+            <button class="close"><a href="{% url 'studentHistory' session.student.id %}" style="color:white;">Go
+                Back</a></button>
+        </div>
+        {% else %}
+        <div class="btn">
+            <button class="close"><a href="{% url 'studentHistory' session.student.id %}" style="color:white;">Go
+                Back</a></button>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

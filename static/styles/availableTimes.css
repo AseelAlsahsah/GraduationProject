@@ -1,0 +1,145 @@
+
+/**************************************************************************/
+h4{
+    text-transform: capitalize;
+    color: white;
+}
+
+.allcontent{
+    display: block;
+}
+
+.contents{
+    width: 60%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 12%;
+    bottom: 0;
+    left: 20%;
+    right: 0;
+}
+
+ img{
+    height: 130px;
+    width: 130px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 40px;
+    object-fit: cover;
+    border: 1px solid #011e2d;
+}
+
+name-profession{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  color: black;
+}
+
+.name-profession .name{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #001524;
+}
+
+.name-profession .profession{
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+table {
+    position: relative;
+    border-collapse: collapse;
+    width: 800px;
+    border: 1px solid #bdc3c7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #eee;
+}
+.contents .head{
+    color: white;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+
+.TR{
+    transition :all .2s ease-in;
+    cursor: pointer;
+
+}
+
+th,td{
+    padding: 9px 1px;
+    text-align:center;
+    border-bottom: 1px solid #fff;
+}
+
+
+.contents .btn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    padding: 0px 260px;
+}
+
+.booked{
+    background-color: #fdecec !important;
+    color: #7a0202 !important;
+    border-color: #c26363 !important;
+    border-radius: 50px !important;
+    padding: 1.5px 0px !important;
+    margin: 2px 3px !important;
+    cursor: pointer !important;
+    width: 70% !important;
+    cursor: not-allowed !important;
+    font-size: 11px;
+}
+
+.passed{
+    background-color: #cfcfcf !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+    border-radius: 50px !important;
+    padding: 1.5px 0px !important;
+    margin: 2px 3px !important;
+    cursor: pointer !important;
+    width: 70% !important;
+    cursor: not-allowed !important;
+    font-size: 11px;
+}
+
+.available{
+    background-color: #ECFDF3 !important;
+    color: #027A48 !important;
+    border-color: #027A48 !important;
+    border-radius: 50px !important;
+    padding: 1.5px 0px !important;
+    margin: 2px 3px !important;
+    cursor: pointer !important;
+    width: 70% !important;
+    font-size: 11px;
+}
+
+.btn button {
+    border: none;
+    padding: 6px 30px;
+    border-radius: 11px;
+    font-size: 18px;
+    background-color: #032d43;
+    color: white;
+    cursor: pointer;
+    margin: 20px 50px;
+}
+

@@ -1,0 +1,217 @@
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="{% static 'styles/indexStyle.css' %}">
+
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+{% block content %}
+
+<div class="container">
+    <div class="cover">
+        <div class="front">
+            <img src="{% static 'images/Untitled-2.png' %}" alt="">
+            <div class="text">
+                <span class="text-1">You are not alone.<br> You are seen. </span>
+                <span class="text-2">Let's get connected</span>
+            </div>
+        </div>
+        <div class="back">
+            <img class="backImg" src="{% static 'images/backImg.jpg' %}" alt="">
+            <div class="text">
+                <span class="text-1">Complete miles of journey <br> with one step</span>
+                <span class="text-2">Let's get started</span>
+            </div>
+        </div>
+    </div>
+
+    {% if page == 'login' %}
+
+    <div class="forms" style="height:87%; padding-top:60px;">
+        <div class="header">
+            <p><img src="{% static 'images/UniLogo.png' %}" alt="">
+                Mental Health Care Website for University of Jordan Students</p>
+        </div>
+        <div class="form-content">
+            <div class="login-form">
+                <div class="title">Login</div>
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Enter your password" required>
+                        </div>
+
+                        {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                            <p style="color:red; text-align:center; font-weight:600">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="button input-box">
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div class="text sign-up-text">Don't have an account?
+                            <label class="dropdown"><a href=""> Signup now </a>
+                                <div class="dropdown-content">
+                                    <a href="{% url 'studentSignup' %}">As Student</a>
+                                    <a href="{% url 'consultantSignup' %}">As Consultant</a>
+                                </div>
+                            </label>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    {% if page == 'studentSignup' %}
+    <div class="forms" style="height:90%; padding-top:60px;padding-bottom:60px;">
+        <div class="header">
+            <p><img src="{% static 'images/UniLogo.png' %}" alt="">
+                Mental Health Care Website for University of Jordan Students</p>
+        </div>
+        <div class="form-content">
+            <div class="signup-form">
+                <div class="title">Signup</div>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            {{form.username}}
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            {{form.email}}
+                        </div>
+                        {% if form.errors.email %}
+                        <div style="color:red; text-align:center; font-weight:600;">
+                            {{form.errors.email}}
+                        </div>
+                        {% endif %}
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            {{form.password}}
+                        </div>
+
+
+                        <div class="button input-box">
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div class="text sign-up-text">Already have an account? <label><a href="{% url 'login' %}">
+                            Login now</a></label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    {% if page == 'consultantSignup' %}
+    <div class="forms">
+        <div class="header" style="margin-bottom:0px">
+            <p><img src="{% static 'images/UniLogo.png' %}" alt="">
+                Mental Health Care Website for University of Jordan Students</p>
+        </div>
+        <div class="form-content">
+            <div class="signup-form">
+                <div class="title">Signup</div>
+                <form method="POST" enctype="multipart/form-data" action="{% url 'consultantSignup' %}">
+                    {% csrf_token %}
+                    <div class="input-boxes" style="margin-top:10px">
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            {{form.username}}
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            {{form.email}}
+                        </div>
+                        {% if form.errors.email %}
+                        <div style="color:red; text-align:center; font-weight:600;">
+                            {{form.errors.email}}
+                        </div>
+                        {% endif %}
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            {{form.password}}
+                        </div>
+                        <div>
+
+                        </div>
+                        <div class="checkbox"
+                             style="border-bottom:2px solid rgba(0,0,0,0.2); padding-bottom:15px; margin-bottom:10px">
+                            <i class="fas fa-book-reader"></i>
+                            <label style="color: #6e6b6b; font-weight: 500; cursor: auto; text-decoration: none; padding-left:10px; padding-right:10px">
+                                Choose your major/s:
+                            </label>
+                            {% for major in form.major %}
+                                {{ major }}
+                            {% endfor %}
+                            {% if form.major.errors %}
+                            <small class="text-danger">{{ form.major.errors|join:", " }}</small>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <i class="far fa-image"></i>
+                            <label style="color: #6e6b6b; font-weight: 500; cursor: auto; text-decoration: none; padding-left:10px">
+                                Upload profile picture
+                            </label>
+                        </div>
+                        <div class="input-box">
+                            {{form.profilePicture}}
+                        </div>
+                        <div>
+                            <i class="far fa-file-pdf"></i>
+                            <label style="color: #6e6b6b; font-weight: 500; cursor: auto; text-decoration: none; padding-left:10px">
+                                Upload Resume/CV
+                            </label>
+                        </div>
+                        <div class="input-box">
+                            {{form.resume}}
+                        </div>
+                        <div class="button input-box">
+                            <input type="submit" value="Submit">
+                        </div>
+                        {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                            <p style="color:red; text-align:center; font-weight:600">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="text sign-up-text">Already have an account?
+                            <label>
+                                <a href="{% url 'login' %}">Login now</a>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endif %}
+
+</div>
+
+{% endblock content %}
+</body>
+</html>

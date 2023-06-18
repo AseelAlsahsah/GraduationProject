@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+<html>
+<title>Home</title>
+<head>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'styles/StyleSheet.css' %}">
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+<!--Top Bar-->
+{% include 'base/navbar.html' %}
+
+<!--Home page Image-->
+<div class="container1">
+    <img class="image1" src="{% static 'images/FirstBG.jpg' %}" style="width:100%;">
+    <div class="centered"><p Style="font-size:45px;font-weight:bold">Mental Health Care</p><br>
+        <p>Sometimes, seeking help from a certified expert is the best way to put things into perspective.Your mental
+            strength is the number one priority<br>
+            <span>We're happy to guide you through life's challenges with the attention and care you deserve...</span>
+        </p><br>
+        <h2>Please, let us know what would make our website better!</h2>
+        <br>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Send feedback
+        </button>
+
+        <div id="id01" class="feedbackModal">
+            <form class="feedbackModal-content animate" action="" method="POST">
+                {% csrf_token %}
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                          title="Close Modal">&times;</span>
+                </div>
+
+                <div class="feedbackContainer" style="padding-top: 30px;">
+                    <p style="color:#003049; font-size:20px;"><b>Your Feedback About the Website</b></P><br>
+                    <input type="text" placeholder="Enter your feedback" name="comment" required>
+                    <button type="submit" style="width: 50%;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Home page box-->
+<div class="text">
+    <p><span Style="font-weight:bold; font-size:40px;">ALL ABOUT <span
+            Style="color:#778da9">THERAPY</span></span><br><br>
+        Perhaps you're down or anxious, maybe you're unsure about what you want in the future,or just<br> feel that you
+        aren't living the life you were meant to lead!<br>
+        Whatever your needs, maybe I am here to offer support.Therapy is a process of growth<br> and self-discovery and
+        in my session
+        I have the tools and professional experience to help you get back on track</p>
+</div>
+
+<div class="section" style="width: 100%;">
+    <div class="title">
+        <h1>3 Steps To Book Your Session</h1>
+    </div>
+    <div class="process">
+        <div class="card">
+            <div class="icon">
+                <i class="fa-solid fa-receipt"></i>
+            </div>
+            <h2>Take a Test</h2>
+            <p>Your answers will determine which of our consultants will appear for you</p>
+
+        </div>
+        <div class="card">
+            <div class="icon">
+                <i class="fa-solid fa-person-half-dress"></i>
+            </div>
+            <h2>Pick a Consultant</h2>
+            <p>You can choose the consultant that you're comfortable with</p>
+
+        </div>
+        <div class="card">
+            <div class="icon">
+                <i class="fas fa-calendar"></i>
+            </div>
+            <h2>Book a Session</h2>
+            <p>Book a session with the consultant of your choice at a time that suits you</p>
+
+        </div>
+    </div>
+</div>
+
+{% include 'base/consultantSection.html' %}
+
+{% include 'base/feedback.html' with students_feedback=students_feedback%}
+
+<!--Footer-->
+{% include 'base/footer.html' %}
+
+</body>
+</html>
+{% endblock %}

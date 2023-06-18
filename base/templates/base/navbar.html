@@ -1,0 +1,133 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
+</head>
+{% block content %}
+<nav>
+    <div id="logo">
+        <img src="{% static 'images/UniLogo.png' %}" style="width:30px; height: 30px; margin: 0 0 -7px 0; border-radius: 0px;">
+        Mental Health Care
+    </div>
+
+    <label for="drop" class="toggle">Menu</label>
+    <input type="checkbox" id="drop"/>
+    <ul class="menu">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>
+            <!-- First Tier Drop Down -->
+            <label for="drop-1" class="toggle">Tests +</label>
+            <a href="#">Tests</a>
+            <input type="checkbox" id="drop-1"/>
+            <ul>
+                <li><a href="https://www.16personalities.com/">16 Personality Test</a></li>
+                <li><a href="https://www.truity.com/">Truity Test</a></li>
+                <li><a href="https://high5test.com/?ref=48">HIGH5 Test</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <!-- First Tier Drop Down -->
+            <label for="drop-2" class="toggle">Disorders +</label>
+            <a href="#">Disorders</a>
+            <input type="checkbox" id="drop-2"/>
+            <ul>
+                <li>
+                    <!-- Second Tier Drop Down -->
+                    <label for="drop-3" class="toggle">Depression +</label>
+                    <a href="#">Depression</a>
+                    <input type="checkbox" id="drop-3"/>
+
+                    <ul>
+                        {% for disorder in disorders %}
+                        {% if disorder.Category.lower == 'depression' %}
+                        <li><a href="{% url 'disordersContent' disorder.id %}"> {{disorder.NavbarName}} </a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li>
+                    <!-- Second Tier Drop Down -->
+                    <label for="drop-3" class="toggle">Bipolar Disorder +</label>
+                    <a href="#">Bipolar</a>
+                    <input type="checkbox" id="drop-3"/>
+                    <ul>
+                        {% for disorder in disorders %}
+                        {% if disorder.Category.lower == 'bipolar disorder' %}
+                        <li><a href="{% url 'disordersContent' disorder.id %}"> {{disorder.NavbarName}} </a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li>
+                    <!-- Second Tier Drop Down -->
+                    <label for="drop-3" class="toggle">Anxiety Disorder +</label>
+                    <a href="#">Anxiety</a>
+                    <input type="checkbox" id="drop-3"/>
+                    <ul>
+                        {% for disorder in disorders %}
+                        {% if disorder.Category.lower == 'anxiety disorders' %}
+                        <li><a href="{% url 'disordersContent' disorder.id %}"> {{disorder.NavbarName}} </a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+
+        <li>
+            <!-- First Tier Drop Down -->
+            <label for="drop-2" class="toggle">Authorities +</label>
+            <a href="#">Authorities</a>
+            <input type="checkbox" id="drop-2"/>
+            <ul>
+                <li>
+                    <!-- Second Tier Drop Down -->
+                    <label for="drop-3" class="toggle">Medical +</label>
+                    <a href="#">Medical</a>
+                    <input type="checkbox" id="drop-3"/>
+
+                    <ul>
+                        <li><a href="https://jpa.jo/"> Psychiatric Association </a></li>
+                        <li><a href="https://jormh.com/"> Mental Health Association </a></li>
+                        <li><a href="https://jscbt.org/"> Jordanian CBT Society </a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <!-- Second Tier Drop Down -->
+                    <label for="drop-3" class="toggle">Legal +</label>
+                    <a href="#">Legal</a>
+                    <input type="checkbox" id="drop-3"/>
+                    <ul>
+                        <li><a href="http://jmc.gov.jo/en/"> JordanianMedical Council </a></li>
+                        <li><a href="https://www.psd.gov.jo/"> FamilyProtection Department </a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+        <li><a href="{% url 'dailyRoutines' %}">Daily Routines</a></li>
+
+        <li><a href="{% url 'test' user.id %}">Book Session</a></li>
+
+        <li>
+            <label for="drop-2" class="toggle">Help +</label>
+            <a href="#">Help</a>
+            <input type="checkbox" id="drop-2"/>
+            <ul>
+                <li><a href="{% url 'FAQ' %}">FAQ</a></li>
+                <li><a href="{% static 'userManual.pdf' %}">User Manual</a></li>
+            </ul>
+        </li>
+
+        <li><a href="{% url 'studentSessions' user.id %}">My Account</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+</nav>
+{% endblock content %}
+</html>

@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+font-family: "Quicksand" , sans-serif !important;
+color: #002234 !important;
+background-color: #c5c5c5 !important
+}
+
+section{
+    min-height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 200px;
+}
+.title{
+    font-size: 3rem;
+    margin: 2rem 0rem;
+}
+.faq{
+    max-width: 800px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #002234;
+    cursor: pointer;
+}
+.question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.question h3{
+}
+
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+}
+.answer p {
+    padding-top: 1rem;
+    line-height: 1.6;
+}
+
+.faq.active .answer{
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+}
+
+.faq.active svg{ /*for the arrow*/
+    transform: rotate(180deg);
+}
+
+svg { 
+    transition: transform 0.5s ease-in;
+}
+
+@keyframes fade { /*to make movement for the answer paraghraph*/
+    from{
+        opacity:0;
+        transform:translateY(-10px)
+    }
+    to {
+        opacity:1;
+        transform:translateY(0px)
+    }
+}

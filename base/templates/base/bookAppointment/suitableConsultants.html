@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'styles/suitableConsultants.css' %}">
+
+</head>
+<body>
+{% include 'base/navbar.html' %}
+<Center>
+    <section>
+        <div class="content">
+            <h3 style=" align-items: center; color: #002244;"> Suitable Consultants For You !</h3>
+
+            <div class="swiper mySwiper container">
+                <div class="swiper-wrapper content">
+
+                    {% for consultant in consultants %}
+                    <div class="swiper-slide card">
+                        <div class="card-content">
+                            <div class="image">
+                                <img src="{{consultant.profilePicture.url}}" alt="">
+                            </div>
+
+
+                            <div class="name-profession">
+                                <span class="name">{{consultant.username}}</span>
+                                <span class="profession">{{consultant.major}}</span>
+                            </div>
+
+                            <div class="button">
+                                <button><a style="text-decoration: none;color:white;" href="{% url 'availableTimes' consultant.id symptom %}">Available Times</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+</center>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script src="{% static 'js/suitableConsultant.js' %}"></script>
+
+</body>
+</html>

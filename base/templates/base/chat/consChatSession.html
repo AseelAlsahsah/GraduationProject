@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'styles/chatSession.css' %}"/>
+    <title>chat session</title>
+
+</head>
+<body>
+
+<main class="profile-page layout layout--2">
+    <div class="container">
+        <!-- Room Start -->
+        <div class="room">
+            <div class="room__top">
+                <div class="room__topLeft">
+                    <img src="{% static 'images/user.png' %}" alt="">
+                    <h3>{{ session.student.username }}</h3>
+                </div>
+                <div id="countdown" class="countdown">
+                    <p id="counter"></p>
+                </div>
+                <div>
+                    <form method="POST" action="{% url 'consultant_chat' session.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="session_pk" value="{{ session.pk }}">
+                        <button type="submit"><i class="fas fa-plus"></i>10 Minutes</button>
+                        <button class="Exit"><a href="{% url 'give_scaledFeedback' session.id %}"
+                                   style="color: #cc0101;"><i class="fa fa-sign-out"></i>Exit</a></button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="room__box scroll">
+                <div class="room__conversation">
+                    <div class="threads scroll">
+                        {% for message in chat_messages %}
+                        <div class="thread">
+                            <div class="thread__top">
+                                <div class="thread__author">
+                                    <a href="#" class="thread__authorInfo">
+                                        <span>@{{ message.user.username }}</span>
+                                    </a>
+                                    <span class="thread__date">{{ message.created|timesince }} ago</span>
+                                </div>
+                            </div>
+                            <div class="thread__details">
+                                {{ message.body }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="room__message">
+                <form id="message-form" action="" method="POST">
+                    {% csrf_token %}
+                    <input name="body" placeholder="Write your message here..."/>
+                </form>
+            </div>
+        </div>
+        <!-- Room End -->
+    </div>
+</main>
+
+<script>
+    // Retrieve the end date from the template
+    const end_date = new Date("{{ end_time|date:'Y-m-d H:i:s' }}");
+
+    function updateCountdown() {
+        const current_date = new Date();
+        const remaining_time = end_date - current_date;
+
+       const minutes = Math.floor((remaining_time % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remaining_time % (1000 * 60)) / 1000);
+
+        document.getElementById("counter").innerHTML = `${minutes}:${seconds}`;
+
+        if (remaining_time <= 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("countdown").innerHTML = "Chat Session Ended";
+        }
+    }
+
+    // Update countdown every second
+    const countdownInterval = setInterval(updateCountdown, 1000);
+
+
+
+
+</script>
+
+
+</body>
+</html>

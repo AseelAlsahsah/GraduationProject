@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/ourteam.css' %}">
+    <script src="https://kit.fontawsome.com/2550a92b94.js" crossorigin="anonymous"></script>
+    <title>Our Team</title>
+</head>
+<body>
+{% include 'base/navbar.html' %}
+
+<h1>OUR CONSULTANTS TEAM </h1>
+<p class="disc">skilled and trustworthy professionals who will assist you in your therapeutic journey.</p>
+<div class="container">
+  <div class="team-grid">
+    {% for consultant in consultants %}
+      <div class="ourteam">
+        <div class="pic">
+          <img src="{{consultant.profilePicture.url}}" alt="">
+        </div>
+        <div class="team-content">
+          <h3 class="title">{{consultant.username}}</h3>
+          <span class="post">{{consultant.major}}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<br><br><br>
+
+{% include 'base/footer.html' %}
+
+</body>
+</html>

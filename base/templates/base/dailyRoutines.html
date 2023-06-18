@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+
+<title>Daily Routines</title>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css"/>
+</head>
+<body>
+<!--Top Bar-->
+{% include 'base/navbar.html' %}
+
+<!--Center Headline-->
+<div Style="margin-left: 520px; height:60px;width:350px;">
+    <p class="headline"> Improve Your Mental Health </p>
+</div>
+<br>
+
+<!--Routines Boxes-->
+<div class="boxes">
+    <div class="box">
+        <img src="{% static 'images/mental11.jpg' %}" alt="Norway" style="width:100%">
+        <div class="container">
+            <p class="faq">+ Get restful sleep</p>
+            <p class="answers">Sleep isn’t just a nonnegotiable for physical health. It also plays an essential
+                role in mental health.</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="{% static 'images/mental.png' %}" alt="Norway" style="width:100%;">
+        <div class="container">
+            <p class="faq">+ Cut back on social media</p>
+            <p class="answers">Constantly consuming information about other people’s lives may cause someone
+                to compare themselves and promote feelings of low self-worth, which increases feelings of
+                anxiety and depression</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="{% static 'images/mental7.jpeg' %}" alt="Norway" style="width:100%;">
+        <div class="container">
+            <p class="faq">+ Move your body</p>
+            <p class="answers">Exercise offers a mental health benefits, including: relieving stress,
+                lifting mood, helping you fall asleep faster and sleep longer & helping you manage symptoms
+                of depression and anxiety conditions</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="{% static 'images/mental1.jpg' %}" alt="Norway" style="width:100%;">
+        <div class="container">
+            <p class="faq">+Savor nutrient-rich foods</p>
+            <p class="answers">Try expanding your current diet to include foods packed with mood-boosting nutrients
+                like:
+                berries, bananas, beans, whole grains & fatty fish</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="{% static 'images/mental6.jpeg' %}" alt="Norway" style="width:100%;">
+        <div class="container">
+            <p class="faq">+ Strengthen your relationships </p>
+            <p class="answers">Humans are social creatures, and strong relationships can have a positive
+                influence on your mental health in various ways.</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="{% static 'images/mental4encoded.png' %}" alt="Norway" style="width:100%;">
+        <div class="container">
+            <p class="faq">+Make time for rest</p>
+            <p class="answers">While what constitutes “rest” may vary from person to person, it generally means giving
+                your mind and body the opportunity to unwind and restore.</p>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+{% include 'base/footer.html' with footer_margin=footer_margin %}
+
+</body>
+</html>

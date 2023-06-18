@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'styles/myAccount.css' %}">
+
+    <title>My Sessions</title>
+</head>
+<body>
+<!--side bar-->
+<nav>
+    <ul>
+        <li>
+            <a href="#" class="logo">
+                <img src="{% static 'images/user.png' %}" alt="">
+                <span class="nav-items"> {{user.username}} - Student</span>
+            </a>
+        </li>
+
+        <li><a href="{% url 'studentHistory' user.id %}">
+            <i class="fas fa-clock"></i>
+            <span class="nav-items"> My History </span>
+        </a></li>
+
+        <li><a href="{% url 'studentSessions' user.id %}">
+            <i class="fas fa-calendar"></i>
+            <span class="nav-items"> My Sessions </span>
+        </a></li>
+
+        <!--        <li><a href="#">-->
+        <!--            <i class="fas fa-pencil-alt"></i>-->
+        <!--            <span class="nav-items"> My Notes </span>-->
+        <!--        </a></li>-->
+
+        <li><a href="{% url 'home' %}">
+            <i class="fas fa fa-home"></i>
+            <span class="nav-items"> Back to Home </span>
+        </a></li>
+
+        <li><a href="{% url 'logout' %}" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-items"> Logout</span>
+        </a></li>
+    </ul>
+</nav>
+<div class="headings">
+    <h1>My Sessions</h1>
+</div>
+
+<!------------User Sessions table----------->
+<div class="table-container">
+    <main class="sessionTable">
+        <section class="table__body">
+            <table>
+                <thead>
+                <tr>
+                    <th> Consultant</th>
+                    <th> Session Date</th>
+                    <th> Session Time</th>
+                    <th> Status</th>
+                    <th> Cancel Session</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for session in session_data %}
+                <tr>
+                    <td><img src="{{session.consultant.profilePicture.url}}" alt="">{{ session.consultant.username }}
+                    </td>
+                    <td>{{ session.date }}</td>
+                    <td>{{ session.time }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'std_enter_session' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="session_id" value="{{ session.id }}">
+                            {% if session.button_color == 'green' %}
+                            <button type="submit" class="accept"> Enter Session</button>
+                            {% else %}
+                            <button type="button" class="disabled">Come Back Later</button>
+                            {% endif %}
+                        </form>
+                    </td>
+                    <td>
+                        <form method="POST" action="{% url 'delete_session' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="session_id" value="{{ session.id }}">
+                            <button type="submit" class="cancel">Cancel</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr></tr>
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <div class="note">
+        <p>All chat messages here are temporary, once you exit neither you nor the consultant would have
+            access to it, this is how we take care of your privacy!</p>
+    </div>
+    {% if messages %}
+    <div class="messages" style="margin-top:20px">
+        {% for message in messages %}
+        <p style="color:red; text-align:center; font-weight:600; padding-left:300px">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+</body>
+</html>

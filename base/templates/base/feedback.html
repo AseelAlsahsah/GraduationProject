@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Responsive Testimonial Slider</title>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="{% static 'styles/swiper-bundle.min.css' %}"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'styles/feedbackStyle.css' %}"/>
+
+    <!-- Boxicons CSS -->
+    <link
+            href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+</head>
+<body>
+
+<div class="testimonial-heading">
+    <h1>How We've Helped</h1>
+    <p style="font-size: 18px;color: #023d53;">What our users say about Mental Care Website</p>
+</div>
+
+<section class="container">
+    <div class="testimonial mySwiper">
+        <div class="testi-content swiper-wrapper">
+            {% for feedback in students_feedback %}
+            <div class="slide swiper-slide">
+                <img src="{% static 'images/user.png' %}" alt="" class="image"/>
+
+                <div class="details">
+                    <span class="name">{{feedback.student.username}}</span>
+                    <span class="date">Date Posted: {{feedback.feedbackDate}}</span>
+                </div>
+
+                <p>
+                    {{feedback.comment}}
+                </p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="swiper-button-next nav-btn"></div>
+        <div class="swiper-button-prev nav-btn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+
+<!-- Swiper JS -->
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+
+<!-- JavaScript -->
+<script src="{% static 'js/script2.js' %}"></script>
+
+</body>
+</html>

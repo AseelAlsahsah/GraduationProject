@@ -1,0 +1,286 @@
+@import url("https://font.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+*{
+    margin:0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background: #efefef;
+}
+/*---------side bar------------*/
+nav{
+    position: absolute;
+    padding-top: 6.85%;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #001524;
+    width: 280px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
+.link .logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+.link .logo img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.link .logo span{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.link a{
+    position: relative;
+    color:  #efefef;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+}
+.fas{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-items{
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+
+.link a:hover{
+    background: #eee;
+    color: #001524;
+}
+.link .logout{
+    position: absolute;
+    bottom: 0;
+}
+/*--------------Headings style--------------------*/
+.headings{
+    background-color: #001524;
+    height: 5%;
+    width: 100%;
+}
+.headings h1{
+    margin-left: 50%;
+    color: #ebeef1;
+    padding: 2%;
+    
+}
+/*----------------------------------------------*/
+h2,p{
+    text-transform: capitalize;
+    color: #001524;
+    margin: 0 15px;
+}
+
+.label1{
+    text-transform: capitalize;
+    color: #001524;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.content {
+    box-shadow: 0 0.5rem 0.8rem #0009;
+    border-radius: 0.8rem;
+    backdrop-filter: blur(7px);
+    border: outset;
+    border-color: #b3b3b3;
+    width: 55%;
+    height: 77%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20%;
+    bottom: 0;
+    left: 34%;
+    right: 0;
+    background-color: #dbd9d9;
+}
+
+.content2 {
+    box-shadow: 0 0.5rem 0.8rem #0009;
+    border-radius: 0.8rem;
+    backdrop-filter: blur(7px);
+    border: outset;
+    border-color: #b3b3b3;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 5%;
+    bottom: 0;
+    left: 15%;
+    right: 0;
+    background-color: #dbd9d9;
+}
+
+.content .head{
+    color: white;
+    font-size: 25px;
+    margin: 25px 0;
+}
+
+.content2 .head{
+    color: white;
+    font-size: 35px;
+    margin: 25px 0;
+}
+
+.content .level{
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.text-area p{
+    background-color: #c9c6c6;
+    margin: 15px 10px;
+    padding: 10px 50px;
+    color: #081b29;
+    border-radius: 25px;
+}
+
+.text-area{
+    background-color: #c9c6c6;
+    margin: 15px 10px;
+    padding: 10px 15px;
+    color: #081b29;
+    border-radius: 15px;
+}
+
+.content .uni{
+    font-size: 19px;
+    margin: 20px 15px;
+    font-weight: bold;
+}
+
+
+.link{
+    font-size: 16px;
+    color: #001524;
+    font-weight: bold;
+}
+.link:hover{
+    background: #eee;
+    color: #001091;
+}
+
+
+.content .btn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3px;
+    padding: 0px 260px;
+}
+
+.content .btn .steps {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 11px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    margin: 20px;
+    background-color: #00541d;
+    width: 120px
+}
+
+.content2 .btn .submit {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 11px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    margin: 20px 250px;
+    background-color: #00541d;
+    width: 120px
+}
+
+.content .btn .close{
+    border: none;
+    padding: 5px 10px;
+    border-radius: 11px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    margin: 20px;
+    background-color: #696969;
+    width: 100px
+}
+
+.content .btn .close:hover{
+    background-color: #484848;
+}
+
+.content .btn .steps:hover {
+    background-color: #014017;
+}
+
+select{
+    border-radius: 5px;
+    width: 120px;
+    height: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #081b29;
+    background: #c9c6c6;
+}
+
+.normal{
+    color: #005c00;
+    font-weight: bold;
+}
+
+.crisis{
+    color: #a60000;
+    font-weight: bold;
+}
+
+.moderate{
+    color: #827100;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

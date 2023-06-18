@@ -1,0 +1,80 @@
+/*********************************** Top Bar Style ************************************/
+*{
+    padding: 0;
+    margin: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-image: linear-gradient(to right , #d8e2dc 40% , #EEEEEE);
+}
+
+
+ /********************************************************** Test *****************/
+.quiz-container{
+    margin-top: 40px;
+    margin-bottom: 40px;;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 85%;
+  height: 80%;
+  overflow: hidden;
+}
+.quiz-header{
+    border-radius: 10px;;
+  padding: 15px;
+
+
+}
+fieldset{
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+    border-radius: 5px;;
+border-color: #003049;
+  align-items: center;
+  justify-content: center;
+    width: 100%;
+  padding: 15px 0px;
+  margin-top: 15px;
+  text-align: center;
+
+}
+
+h3{
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+}
+fieldset h3{
+    margin: 2px;
+}
+label{
+  list-style-type: none;
+  padding: 10px;
+  font-size: 1rem;
+  margin: 3rem 0;
+
+  cursor: pointer;
+}
+button{
+    margin: 20px 0px;
+    background-color: #042331;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1.3rem;
+}
+
+button:hover{
+    background-color: #0a1422;
+}
+
+button:focus{
+  outline: none;
+
+}
